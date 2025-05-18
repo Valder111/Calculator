@@ -38,7 +38,7 @@
             button_8 = new Button();
             button_9 = new Button();
             button_0 = new Button();
-            button11 = new Button();
+            button_ClearAll = new Button();
             button_point = new Button();
             richTextBox1 = new RichTextBox();
             button_plus = new Button();
@@ -169,16 +169,17 @@
             button_0.UseVisualStyleBackColor = true;
             button_0.Click += button_0_Click;
             // 
-            // button11
+            // button_ClearAll
             // 
-            button11.Font = new Font("Segoe UI", 12F);
-            button11.Location = new Point(240, 523);
-            button11.Margin = new Padding(4);
-            button11.Name = "button11";
-            button11.Size = new Size(76, 78);
-            button11.TabIndex = 10;
-            button11.Text = "C";
-            button11.UseVisualStyleBackColor = true;
+            button_ClearAll.Font = new Font("Segoe UI", 12F);
+            button_ClearAll.Location = new Point(240, 523);
+            button_ClearAll.Margin = new Padding(4);
+            button_ClearAll.Name = "button_ClearAll";
+            button_ClearAll.Size = new Size(76, 78);
+            button_ClearAll.TabIndex = 10;
+            button_ClearAll.Text = "C";
+            button_ClearAll.UseVisualStyleBackColor = true;
+            button_ClearAll.Click += button_ClearAll_Click;
             // 
             // button_point
             // 
@@ -282,7 +283,7 @@
             Controls.Add(button_plus);
             Controls.Add(richTextBox1);
             Controls.Add(button_point);
-            Controls.Add(button11);
+            Controls.Add(button_ClearAll);
             Controls.Add(button_0);
             Controls.Add(button_9);
             Controls.Add(button_8);
@@ -313,7 +314,7 @@
         private Button button_8;
         private Button button_9;
         private Button button_0;
-        private Button button11;
+        private Button button_ClearAll;
         private Button button_point;
         private RichTextBox richTextBox1;
         private Button button_plus;
