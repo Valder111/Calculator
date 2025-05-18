@@ -45,8 +45,8 @@
             button_minus = new Button();
             button_mult = new Button();
             button_mod = new Button();
-            textBox1 = new TextBox();
             buttonAnswer = new Button();
+            labelText = new Label();
             SuspendLayout();
             // 
             // button_1
@@ -195,9 +195,10 @@
             // richTextBox1
             // 
             richTextBox1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            richTextBox1.Location = new Point(26, 53);
+            richTextBox1.Location = new Point(26, 73);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
+            richTextBox1.RightToLeft = RightToLeft.Yes;
             richTextBox1.Size = new Size(399, 96);
             richTextBox1.TabIndex = 13;
             richTextBox1.Text = "0";
@@ -250,18 +251,10 @@
             button_mod.UseVisualStyleBackColor = true;
             button_mod.Click += button_mod_Click;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(26, 155);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(399, 29);
-            textBox1.TabIndex = 18;
-            // 
             // buttonAnswer
             // 
             buttonAnswer.Font = new Font("Segoe UI", 12F);
-            buttonAnswer.Location = new Point(445, 366);
+            buttonAnswer.Location = new Point(465, 361);
             buttonAnswer.Margin = new Padding(4);
             buttonAnswer.Name = "buttonAnswer";
             buttonAnswer.Size = new Size(76, 78);
@@ -270,13 +263,23 @@
             buttonAnswer.UseVisualStyleBackColor = true;
             buttonAnswer.Click += buttonAnswer_Click;
             // 
+            // labelText
+            // 
+            labelText.AutoSize = true;
+            labelText.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelText.Location = new Point(135, 43);
+            labelText.Name = "labelText";
+            labelText.Size = new Size(94, 27);
+            labelText.TabIndex = 20;
+            labelText.Text = "Test text";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(534, 630);
+            ClientSize = new Size(554, 630);
+            Controls.Add(labelText);
             Controls.Add(buttonAnswer);
-            Controls.Add(textBox1);
             Controls.Add(button_mod);
             Controls.Add(button_mult);
             Controls.Add(button_minus);
@@ -295,6 +298,7 @@
             Controls.Add(button_2);
             Controls.Add(button_1);
             Font = new Font("Segoe UI", 12F);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(4);
             Name = "MainForm";
             Text = "Calculator";
@@ -321,7 +325,7 @@
         private Button button_minus;
         private Button button_mult;
         private Button button_mod;
-        private TextBox textBox1;
         private Button buttonAnswer;
+        private Label labelText;
     }
 }

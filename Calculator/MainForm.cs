@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace Calculator
 {
     public partial class MainForm : Form
@@ -7,15 +5,13 @@ namespace Calculator
         public MainForm()
         {
             InitializeComponent();
+            labelText.Text = "Enter the first number:";
         }
 
         private int operation;
-
         public string firstNumber;
         public string secondNumber;
-
         private bool isThisFirstNum = true;
-
         //numbers
         private void button_0_Click(object sender, EventArgs e)
         {
@@ -150,58 +146,62 @@ namespace Calculator
         //operations:
         private void button_plus_Click(object sender, EventArgs e)
         {
+            operation = 1;
             if (isThisFirstNum) 
             {
                 isThisFirstNum = false;
-                operation = 1;
-                Operation(1);
             }
             else
             {
-                return;
+                //return;
             }
+            labelText.Text = "Enter the second number:";
+            richTextBox1.Text = "0";
         }
 
         private void button_minus_Click(object sender, EventArgs e)
         {
+            operation = 2;
             if (isThisFirstNum)
             {
                 isThisFirstNum = false;
-                operation = 2;
-                Operation(2);
             }
             else
             {
-                return;
+                //return;
             }
+            labelText.Text = "Enter the second number:";
+            richTextBox1.Text = "0";
         }
 
         private void button_mult_Click(object sender, EventArgs e)
         {
+            operation = 3;
             if (isThisFirstNum)
             {
                 isThisFirstNum = false;
-                operation = 3;
-                Operation(3);
             }
             else
             {
-                return;
+                //return;
             }
+            labelText.Text = "Enter the second number:";
+            richTextBox1.Text = "0";
         }
 
         private void button_mod_Click(object sender, EventArgs e)
         {
+            operation = 4;
             if (isThisFirstNum)
             {
                 isThisFirstNum = false;
-                operation = 4;
-                Operation(4);
             }
             else
             {
-                return;
+                //return;
             }
+            labelText.Text = "Enter the second number:";
+            richTextBox1.Text = "0";
         }
 
         //Visual:
@@ -210,22 +210,20 @@ namespace Calculator
             if (isThisFirstNum)
             {
                 richTextBox1.Text = firstNumber.ToString();
-                textBox1.Text = firstNumber.ToString();
             }
             else
             {
                 richTextBox1.Text = secondNumber.ToString();
-                textBox1.Text = secondNumber.ToString();
             }
         }
-        //Operations_Stack:
-        private void Operation(int operation)
-        {
-            //
-        }
+
         //Answer
         private void buttonAnswer_Click(object sender, EventArgs e)
         {
+            if (isThisFirstNum)
+            {
+                MessageBox.Show("Enter the first number!");
+            }
             if (secondNumber == null)
             {
                 MessageBox.Show("Enter the second number!");
@@ -251,14 +249,19 @@ namespace Calculator
                     answer = numb1 / numb2;
                     break;
             }
+            firstNumber = answer.ToString();
+            secondNumber = null;
             richTextBox1.Text = answer.ToString();
-            textBox1.Text = answer.ToString();
-            MessageBox.Show("Wow!");
+            labelText.Text = "Here's your answer:";
         }
 
         private void button_ClearAll_Click(object sender, EventArgs e)
         {
-
+            firstNumber = null;
+            secondNumber = null;
+            isThisFirstNum = true;
+            richTextBox1.Text = "0";
+            labelText.Text = "Enter the first number:";
         }
     }
 }
