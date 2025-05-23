@@ -12,9 +12,14 @@ namespace Calculator
         public string firstNumber;
         public string secondNumber;
         private bool isThisFirstNum = true;
+        private bool isThisFirstDigit = true;
         //numbers
         private void button_0_Click(object sender, EventArgs e)
         {
+            if (isThisFirstDigit)
+            {
+                return;
+            }
             if (isThisFirstNum)
             {
                 firstNumber += "0";
@@ -151,12 +156,9 @@ namespace Calculator
             {
                 isThisFirstNum = false;
             }
-            else
-            {
-                //return;
-            }
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
+            isThisFirstDigit = true;
         }
 
         private void button_minus_Click(object sender, EventArgs e)
@@ -166,12 +168,9 @@ namespace Calculator
             {
                 isThisFirstNum = false;
             }
-            else
-            {
-                //return;
-            }
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
+            isThisFirstDigit = true;
         }
 
         private void button_mult_Click(object sender, EventArgs e)
@@ -181,12 +180,9 @@ namespace Calculator
             {
                 isThisFirstNum = false;
             }
-            else
-            {
-                //return;
-            }
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
+            isThisFirstDigit = true;
         }
 
         private void button_mod_Click(object sender, EventArgs e)
@@ -196,12 +192,9 @@ namespace Calculator
             {
                 isThisFirstNum = false;
             }
-            else
-            {
-                //return;
-            }
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
+            isThisFirstDigit = true;
         }
 
         //Visual:
@@ -215,6 +208,7 @@ namespace Calculator
             {
                 richTextBox1.Text = secondNumber.ToString();
             }
+            isThisFirstDigit = false;
         }
 
         //Answer
@@ -229,11 +223,23 @@ namespace Calculator
                 MessageBox.Show("Enter the second number!");
                 return;
             }
+
             // convert process:
             
             double numb1 = Convert.ToDouble(firstNumber);
+            if (numb1 < 0)
+            {
+                Console.WriteLine(numb1);
+
+            }
             double numb2 = Convert.ToDouble(secondNumber);
+            if (numb2 < 0)
+            {
+                Console.WriteLine(numb2);
+            }
+
             double answer = 0;
+
             switch (operation)
             {
                 case 1:
@@ -246,6 +252,7 @@ namespace Calculator
                     answer = numb1 * numb2;
                     break;
                 case 4:
+                    if (numb2 == 0) { richTextBox1.Text = "You can't divide by zero"; return; }
                     answer = numb1 / numb2;
                     break;
             }
@@ -260,6 +267,7 @@ namespace Calculator
             firstNumber = null;
             secondNumber = null;
             isThisFirstNum = true;
+            isThisFirstDigit = true;
             richTextBox1.Text = "0";
             labelText.Text = "Enter the first number:";
         }
