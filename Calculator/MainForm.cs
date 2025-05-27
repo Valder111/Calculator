@@ -7,12 +7,13 @@ namespace Calculator
             InitializeComponent();
             labelText.Text = "Enter the first number:";
         }
-
+        
         private int operation;
         public string firstNumber;
         public string secondNumber;
         private bool isThisFirstNum = true;
         private bool isThisFirstDigit = true;
+        private bool isPointExist = false;
         //numbers
         private void button_0_Click(object sender, EventArgs e)
         {
@@ -152,13 +153,14 @@ namespace Calculator
         private void button_plus_Click(object sender, EventArgs e)
         {
             operation = 1;
-            if (isThisFirstNum) 
+            if (isThisFirstNum)
             {
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
             isThisFirstDigit = true;
+            isPointExist = false;
         }
 
         private void button_minus_Click(object sender, EventArgs e)
@@ -171,6 +173,7 @@ namespace Calculator
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
             isThisFirstDigit = true;
+            isPointExist = false;
         }
 
         private void button_mult_Click(object sender, EventArgs e)
@@ -183,6 +186,7 @@ namespace Calculator
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
             isThisFirstDigit = true;
+            isPointExist = false;
         }
 
         private void button_mod_Click(object sender, EventArgs e)
@@ -195,6 +199,20 @@ namespace Calculator
             labelText.Text = "Enter the second number:";
             richTextBox1.Text = "0";
             isThisFirstDigit = true;
+            isPointExist = false;
+        }
+        private void button_point_Click(object sender, EventArgs e)
+        {
+            if (isThisFirstNum & isPointExist==false)
+            {
+                firstNumber += ",";
+            }
+            else if (isPointExist==false)
+            {
+                secondNumber += ",";
+            }
+            isPointExist = true;
+            UpdateNumber();
         }
 
         //Visual:
@@ -225,7 +243,7 @@ namespace Calculator
             }
 
             // convert process:
-            
+
             double numb1 = Convert.ToDouble(firstNumber);
             if (numb1 < 0)
             {
@@ -268,6 +286,7 @@ namespace Calculator
             secondNumber = null;
             isThisFirstNum = true;
             isThisFirstDigit = true;
+            isPointExist = false;
             richTextBox1.Text = "0";
             labelText.Text = "Enter the first number:";
         }

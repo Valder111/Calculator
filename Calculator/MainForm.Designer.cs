@@ -191,6 +191,7 @@
             button_point.TabIndex = 11;
             button_point.Text = ",";
             button_point.UseVisualStyleBackColor = true;
+            button_point.Click += button_point_Click;
             // 
             // richTextBox1
             // 
@@ -269,13 +270,13 @@
             labelText.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
             labelText.Location = new Point(135, 43);
             labelText.Name = "labelText";
-            labelText.Size = new Size(94, 27);
+            labelText.Size = new Size(115, 34);
             labelText.TabIndex = 20;
             labelText.Text = "Test text";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(554, 630);
             Controls.Add(labelText);
