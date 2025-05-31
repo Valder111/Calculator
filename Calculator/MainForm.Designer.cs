@@ -47,6 +47,8 @@
             button_mod = new Button();
             buttonAnswer = new Button();
             labelText = new Label();
+            button_deleteLast = new Button();
+            label_operation = new Label();
             SuspendLayout();
             // 
             // button_1
@@ -199,7 +201,8 @@
             richTextBox1.Location = new Point(26, 73);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.RightToLeft = RightToLeft.Yes;
+            richTextBox1.RightToLeft = RightToLeft.No;
+            richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
             richTextBox1.Size = new Size(399, 96);
             richTextBox1.TabIndex = 13;
             richTextBox1.Text = "0";
@@ -255,7 +258,7 @@
             // buttonAnswer
             // 
             buttonAnswer.Font = new Font("Segoe UI", 12F);
-            buttonAnswer.Location = new Point(465, 361);
+            buttonAnswer.Location = new Point(455, 523);
             buttonAnswer.Margin = new Padding(4);
             buttonAnswer.Name = "buttonAnswer";
             buttonAnswer.Size = new Size(76, 78);
@@ -268,17 +271,40 @@
             // 
             labelText.AutoSize = true;
             labelText.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelText.Location = new Point(135, 43);
+            labelText.Location = new Point(26, 30);
             labelText.Name = "labelText";
-            labelText.Size = new Size(115, 34);
+            labelText.Size = new Size(94, 27);
             labelText.TabIndex = 20;
             labelText.Text = "Test text";
             // 
+            // button_deleteLast
+            // 
+            button_deleteLast.Font = new Font("Segoe UI", 12F);
+            button_deleteLast.Location = new Point(455, 199);
+            button_deleteLast.Margin = new Padding(4);
+            button_deleteLast.Name = "button_deleteLast";
+            button_deleteLast.Size = new Size(76, 78);
+            button_deleteLast.TabIndex = 21;
+            button_deleteLast.Text = "<--";
+            button_deleteLast.UseVisualStyleBackColor = true;
+            button_deleteLast.Click += button_deleteLast_Click;
+            // 
+            // label_operation
+            // 
+            label_operation.AutoSize = true;
+            label_operation.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label_operation.Location = new Point(476, 97);
+            label_operation.Name = "label_operation";
+            label_operation.Size = new Size(0, 37);
+            label_operation.TabIndex = 22;
+            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(554, 630);
+            Controls.Add(label_operation);
+            Controls.Add(button_deleteLast);
             Controls.Add(labelText);
             Controls.Add(buttonAnswer);
             Controls.Add(button_mod);
@@ -328,5 +354,7 @@
         private Button button_mod;
         private Button buttonAnswer;
         private Label labelText;
+        private Button button_deleteLast;
+        private Label label_operation;
     }
 }
