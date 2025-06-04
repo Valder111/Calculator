@@ -12,12 +12,11 @@ namespace Calculator
         public string firstNumber = "";
         public string secondNumber = "";
         private bool isThisFirstNum = true;
-        private bool isThisFirstDigit = true;
         private bool isPointExist = false;
         //numbers
         private void numberButtons(object sender, EventArgs e)
         {
-            if (isThisFirstDigit)
+            if (isThisFirstNum)
             {
                 firstNumber = "";
             }
@@ -178,9 +177,7 @@ namespace Calculator
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "";
             label_operation.Text = "+";
-            isThisFirstDigit = true;
             isPointExist = false;
         }
 
@@ -196,9 +193,7 @@ namespace Calculator
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "";
             label_operation.Text = "-";
-            isThisFirstDigit = true;
             isPointExist = false;
         }
 
@@ -214,9 +209,7 @@ namespace Calculator
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "";
             label_operation.Text = "*";
-            isThisFirstDigit = true;
             isPointExist = false;
         }
 
@@ -232,9 +225,7 @@ namespace Calculator
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "";
             label_operation.Text = "/";
-            isThisFirstDigit = true;
             isPointExist = false;
         }
         private void button_point_Click(object sender, EventArgs e)
@@ -264,17 +255,22 @@ namespace Calculator
             {
                 richTextBox1.Text = secondNumber.ToString();
             }
-            isThisFirstDigit = false;
         }
 
         //Answer
         private void buttonAnswer_Click(object sender, EventArgs e)
         {
-            if (isThisFirstNum)
+            if (firstNumber == "")
             {
                 MessageBox.Show("Enter the first number!");
+                return;
             }
-            if (secondNumber == null)
+            if (operation == 0)
+            {
+                MessageBox.Show("Select the operation!");
+                return;
+            }
+            if (secondNumber == "")
             {
                 MessageBox.Show("Enter the second number!");
                 return;
@@ -304,9 +300,8 @@ namespace Calculator
                     break;
             }
             firstNumber = answer.ToString();
-
+            operation = 0;
             secondNumber = "";
-
             richTextBox1.Text = answer.ToString();
             labelText.Text = "Here's your answer:";
             label_operation.Text = "";
@@ -316,7 +311,7 @@ namespace Calculator
             char delSymbol;
             if (isThisFirstNum)
             {
-                if (firstNumber == null)
+                if (firstNumber == "")
                 {
                     return;
                 }
@@ -328,11 +323,11 @@ namespace Calculator
                 }
                 delSymbol = firstNumber[firstNumber.Length - 1];
                 firstNumber = firstNumber.Remove(firstNumber.Length - 1);
-                //UpdateNumber();
+                UpdateNumber();
             }
             else
             {
-                if (secondNumber == null)
+                if (secondNumber == "")
                 {
                     return;
                 }
@@ -344,9 +339,8 @@ namespace Calculator
                 }
                 delSymbol = secondNumber[secondNumber.Length - 1];
                 secondNumber = secondNumber.Remove(secondNumber.Length - 1);
-                //UpdateNumber();
+                UpdateNumber();
             }
-            UpdateNumber();
             if (delSymbol == ',')
             {
                 isPointExist = false;
@@ -357,9 +351,10 @@ namespace Calculator
         {
             firstNumber = "";
             secondNumber = "";
+            operation = 0;
             isThisFirstNum = true;
-            isThisFirstDigit = true;
             isPointExist = false;
+
             richTextBox1.Text = "";
             labelText.Text = "Enter the first number:";
             label_operation.Text = "";
