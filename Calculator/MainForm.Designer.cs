@@ -205,7 +205,7 @@
             richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
             richTextBox1.Size = new Size(399, 96);
             richTextBox1.TabIndex = 13;
-            richTextBox1.Text = "0";
+            richTextBox1.Text = "";
             // 
             // button_plus
             // 

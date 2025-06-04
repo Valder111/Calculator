@@ -9,24 +9,40 @@ namespace Calculator
         }
 
         private int operation;
-        public string firstNumber;
-        public string secondNumber;
+        public string firstNumber = "";
+        public string secondNumber = "";
         private bool isThisFirstNum = true;
         private bool isThisFirstDigit = true;
         private bool isPointExist = false;
         //numbers
-        private void button_0_Click(object sender, EventArgs e)
+        private void numberButtons(object sender, EventArgs e)
         {
             if (isThisFirstDigit)
             {
-                return;
+                firstNumber = "";
             }
+            else
+            {
+                secondNumber = "";
+            }
+            UpdateNumber();
+        }
+        private void button_0_Click(object sender, EventArgs e)
+        {
             if (isThisFirstNum)
             {
+                if (firstNumber == "")
+                {
+                    return;
+                }
                 firstNumber += "0";
             }
             else
             {
+                if (secondNumber == "")
+                {
+                    return;
+                }
                 secondNumber += "0";
             }
             UpdateNumber();
@@ -155,10 +171,14 @@ namespace Calculator
             operation = 1;
             if (isThisFirstNum)
             {
+                if (firstNumber == "")
+                {
+                    return;
+                }
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "0";
+            richTextBox1.Text = "";
             label_operation.Text = "+";
             isThisFirstDigit = true;
             isPointExist = false;
@@ -169,10 +189,14 @@ namespace Calculator
             operation = 2;
             if (isThisFirstNum)
             {
+                if (firstNumber == "")
+                {
+                    return;
+                }
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "0";
+            richTextBox1.Text = "";
             label_operation.Text = "-";
             isThisFirstDigit = true;
             isPointExist = false;
@@ -183,10 +207,14 @@ namespace Calculator
             operation = 3;
             if (isThisFirstNum)
             {
+                if (firstNumber == "")
+                {
+                    return;
+                }
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "0";
+            richTextBox1.Text = "";
             label_operation.Text = "*";
             isThisFirstDigit = true;
             isPointExist = false;
@@ -197,10 +225,14 @@ namespace Calculator
             operation = 4;
             if (isThisFirstNum)
             {
+                if (firstNumber == "")
+                {
+                    return;
+                }
                 isThisFirstNum = false;
             }
             labelText.Text = "Enter the second number:";
-            richTextBox1.Text = "0";
+            richTextBox1.Text = "";
             label_operation.Text = "/";
             isThisFirstDigit = true;
             isPointExist = false;
@@ -209,12 +241,12 @@ namespace Calculator
         {
             if (isThisFirstNum & isPointExist == false)
             {
-                if (isThisFirstDigit == true) { firstNumber += "0"; }
+                if (firstNumber == "") { return; }
                 firstNumber += ",";
             }
             else if (isPointExist == false)
             {
-                if (isThisFirstDigit == true) { secondNumber += "0"; }
+                if (secondNumber == "") { return; }
                 secondNumber += ",";
             }
             isPointExist = true;
@@ -251,16 +283,7 @@ namespace Calculator
             // convert process:
 
             double numb1 = Convert.ToDouble(firstNumber);
-            if (numb1 < 0)
-            {
-                Console.WriteLine(numb1);
-
-            }
             double numb2 = Convert.ToDouble(secondNumber);
-            if (numb2 < 0)
-            {
-                Console.WriteLine(numb2);
-            }
 
             double answer = 0;
 
@@ -282,7 +305,7 @@ namespace Calculator
             }
             firstNumber = answer.ToString();
 
-            secondNumber = null;
+            secondNumber = "";
 
             richTextBox1.Text = answer.ToString();
             labelText.Text = "Here's your answer:";
@@ -290,17 +313,54 @@ namespace Calculator
         }
         private void button_deleteLast_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("WorkInProgress");
+            char delSymbol;
+            if (isThisFirstNum)
+            {
+                if (firstNumber == null)
+                {
+                    return;
+                }
+                if (firstNumber.Length == 0)
+                {
+                    firstNumber = "";
+                    richTextBox1.Text = "";
+                    return;
+                }
+                delSymbol = firstNumber[firstNumber.Length - 1];
+                firstNumber = firstNumber.Remove(firstNumber.Length - 1);
+                //UpdateNumber();
+            }
+            else
+            {
+                if (secondNumber == null)
+                {
+                    return;
+                }
+                if (secondNumber.Length == 0)
+                {
+                    secondNumber = "";
+                    richTextBox1.Text = "";
+                    return;
+                }
+                delSymbol = secondNumber[secondNumber.Length - 1];
+                secondNumber = secondNumber.Remove(secondNumber.Length - 1);
+                //UpdateNumber();
+            }
+            UpdateNumber();
+            if (delSymbol == ',')
+            {
+                isPointExist = false;
+            }
         }
 
         private void button_ClearAll_Click(object sender, EventArgs e)
         {
-            firstNumber = null;
-            secondNumber = null;
+            firstNumber = "";
+            secondNumber = "";
             isThisFirstNum = true;
             isThisFirstDigit = true;
             isPointExist = false;
-            richTextBox1.Text = "0";
+            richTextBox1.Text = "";
             labelText.Text = "Enter the first number:";
             label_operation.Text = "";
         }
