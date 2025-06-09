@@ -49,6 +49,7 @@
             labelText = new Label();
             button_deleteLast = new Button();
             label_operation = new Label();
+            firstNumber_Text = new Label();
             SuspendLayout();
             // 
             // button_1
@@ -61,7 +62,7 @@
             button_1.TabIndex = 0;
             button_1.Text = "1";
             button_1.UseVisualStyleBackColor = true;
-            button_1.Click += button_1_Click;
+            button_1.Click += numberButtons;
             // 
             // button_2
             // 
@@ -73,7 +74,7 @@
             button_2.TabIndex = 1;
             button_2.Text = "2";
             button_2.UseVisualStyleBackColor = true;
-            button_2.Click += button_2_Click;
+            button_2.Click += numberButtons;
             // 
             // button_3
             // 
@@ -85,7 +86,7 @@
             button_3.TabIndex = 2;
             button_3.Text = "3";
             button_3.UseVisualStyleBackColor = true;
-            button_3.Click += button_3_Click;
+            button_3.Click += numberButtons;
             // 
             // button_4
             // 
@@ -97,7 +98,7 @@
             button_4.TabIndex = 3;
             button_4.Text = "4";
             button_4.UseVisualStyleBackColor = true;
-            button_4.Click += button_4_Click;
+            button_4.Click += numberButtons;
             // 
             // button_5
             // 
@@ -109,7 +110,7 @@
             button_5.TabIndex = 4;
             button_5.Text = "5";
             button_5.UseVisualStyleBackColor = true;
-            button_5.Click += button_5_Click;
+            button_5.Click += numberButtons;
             // 
             // button_6
             // 
@@ -121,7 +122,7 @@
             button_6.TabIndex = 5;
             button_6.Text = "6";
             button_6.UseVisualStyleBackColor = true;
-            button_6.Click += button_6_Click;
+            button_6.Click += numberButtons;
             // 
             // button_7
             // 
@@ -133,7 +134,7 @@
             button_7.TabIndex = 6;
             button_7.Text = "7";
             button_7.UseVisualStyleBackColor = true;
-            button_7.Click += button_7_Click;
+            button_7.Click += numberButtons;
             // 
             // button_8
             // 
@@ -145,7 +146,7 @@
             button_8.TabIndex = 7;
             button_8.Text = "8";
             button_8.UseVisualStyleBackColor = true;
-            button_8.Click += button_8_Click;
+            button_8.Click += numberButtons;
             // 
             // button_9
             // 
@@ -157,7 +158,7 @@
             button_9.TabIndex = 8;
             button_9.Text = "9";
             button_9.UseVisualStyleBackColor = true;
-            button_9.Click += button_9_Click;
+            button_9.Click += numberButtons;
             // 
             // button_0
             // 
@@ -169,7 +170,7 @@
             button_0.TabIndex = 9;
             button_0.Text = "0";
             button_0.UseVisualStyleBackColor = true;
-            button_0.Click += button_0_Click;
+            button_0.Click += numberButtons;
             // 
             // button_ClearAll
             // 
@@ -203,7 +204,7 @@
             richTextBox1.ReadOnly = true;
             richTextBox1.RightToLeft = RightToLeft.No;
             richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox1.Size = new Size(399, 96);
+            richTextBox1.Size = new Size(399, 61);
             richTextBox1.TabIndex = 13;
             richTextBox1.Text = "0";
             // 
@@ -217,7 +218,7 @@
             button_plus.TabIndex = 14;
             button_plus.Text = "+";
             button_plus.UseVisualStyleBackColor = true;
-            button_plus.Click += button_plus_Click;
+            button_plus.Click += buttons_Operation_Click;
             // 
             // button_minus
             // 
@@ -229,7 +230,7 @@
             button_minus.TabIndex = 15;
             button_minus.Text = "-";
             button_minus.UseVisualStyleBackColor = true;
-            button_minus.Click += button_minus_Click;
+            button_minus.Click += buttons_Operation_Click;
             // 
             // button_mult
             // 
@@ -241,7 +242,7 @@
             button_mult.TabIndex = 16;
             button_mult.Text = "*";
             button_mult.UseVisualStyleBackColor = true;
-            button_mult.Click += button_mult_Click;
+            button_mult.Click += buttons_Operation_Click;
             // 
             // button_mod
             // 
@@ -253,7 +254,7 @@
             button_mod.TabIndex = 17;
             button_mod.Text = "/";
             button_mod.UseVisualStyleBackColor = true;
-            button_mod.Click += button_mod_Click;
+            button_mod.Click += buttons_Operation_Click;
             // 
             // buttonAnswer
             // 
@@ -265,7 +266,7 @@
             buttonAnswer.TabIndex = 19;
             buttonAnswer.Text = "=";
             buttonAnswer.UseVisualStyleBackColor = true;
-            buttonAnswer.Click += buttonAnswer_Click;
+            buttonAnswer.Click += button_Answer_Click;
             // 
             // labelText
             // 
@@ -298,11 +299,22 @@
             label_operation.Size = new Size(0, 37);
             label_operation.TabIndex = 22;
             // 
+            // firstNumber_Text
+            // 
+            firstNumber_Text.AutoSize = true;
+            firstNumber_Text.ForeColor = SystemColors.ButtonShadow;
+            firstNumber_Text.Location = new Point(36, 110);
+            firstNumber_Text.Name = "firstNumber_Text";
+            firstNumber_Text.Size = new Size(37, 21);
+            firstNumber_Text.TabIndex = 23;
+            firstNumber_Text.Text = "100";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(554, 630);
+            Controls.Add(firstNumber_Text);
             Controls.Add(label_operation);
             Controls.Add(button_deleteLast);
             Controls.Add(labelText);
@@ -356,5 +368,6 @@
         private Label labelText;
         private Button button_deleteLast;
         private Label label_operation;
+        private Label firstNumber_Text;
     }
 }
