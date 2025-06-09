@@ -6,6 +6,7 @@ namespace Calculator
         {
             InitializeComponent();
             labelText.Text = "Enter the first number:";
+            firstNumber_Text.Text = "";
         }
 
         private int operation;
@@ -13,221 +14,186 @@ namespace Calculator
         public string secondNumber = "";
         private bool isThisFirstNum = true;
         private bool isPointExist = false;
-        //numbers
+        //Numbers
         private void numberButtons(object sender, EventArgs e)
         {
-            if (isThisFirstNum)
+            Button clickedButton = sender as Button;
+            switch (clickedButton.Text)
             {
-                firstNumber = "";
-            }
-            else
-            {
-                secondNumber = "";
-            }
-            UpdateNumber();
-        }
-        private void button_0_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                if (firstNumber == "")
-                {
-                    return;
-                }
-                firstNumber += "0";
-            }
-            else
-            {
-                if (secondNumber == "")
-                {
-                    return;
-                }
-                secondNumber += "0";
-            }
-            UpdateNumber();
-        }
-
-        private void button_1_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "1";
-            }
-            else
-            {
-                secondNumber += "1";
-            }
-            UpdateNumber();
-        }
-
-        private void button_2_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "2";
-            }
-            else
-            {
-                secondNumber += "2";
-            }
-            UpdateNumber();
-        }
-
-        private void button_3_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "3";
-            }
-            else
-            {
-                secondNumber += "3";
-            }
-            UpdateNumber();
-        }
-
-        private void button_4_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "4";
-            }
-            else
-            {
-                secondNumber += "4";
-            }
-            UpdateNumber();
-        }
-
-        private void button_5_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "5";
-            }
-            else
-            {
-                secondNumber += "5";
-            }
-            UpdateNumber();
-        }
-
-        private void button_6_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "6";
-            }
-            else
-            {
-                secondNumber += "6";
-            }
-            UpdateNumber();
-        }
-
-        private void button_7_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "7";
-            }
-            else
-            {
-                secondNumber += "7";
+                case "0":
+                    if (isThisFirstNum)
+                    {
+                        if (firstNumber == "")
+                        {
+                            return;
+                        }
+                        firstNumber += "0";
+                    }
+                    else
+                    {
+                        if (secondNumber == "")
+                        {
+                            return;
+                        }
+                        secondNumber += "0";
+                    }
+                    break;
+                case "1":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "1";
+                    }
+                    else
+                    {
+                        secondNumber += "1";
+                    }
+                    break;
+                case "2":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "2";
+                    }
+                    else
+                    {
+                        secondNumber += "2";
+                    }
+                    break;
+                case "3":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "3";
+                    }
+                    else
+                    {
+                        secondNumber += "3";
+                    }
+                    break;
+                case "4":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "4";
+                    }
+                    else
+                    {
+                        secondNumber += "4";
+                    }
+                    break;
+                case "5":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "5";
+                    }
+                    else
+                    {
+                        secondNumber += "5";
+                    }
+                    break;
+                case "6":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "6";
+                    }
+                    else
+                    {
+                        secondNumber += "6";
+                    }
+                    break;
+                case "7":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "7";
+                    }
+                    else
+                    {
+                        secondNumber += "7";
+                    }
+                    break;
+                case "8":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "8";
+                    }
+                    else
+                    {
+                        secondNumber += "8";
+                    }
+                    break;
+                case "9":
+                    if (isThisFirstNum)
+                    {
+                        firstNumber += "9";
+                    }
+                    else
+                    {
+                        secondNumber += "9";
+                    }
+                    break;
             }
             UpdateNumber();
         }
-
-        private void button_8_Click(object sender, EventArgs e)
+        //Operations:
+        private void buttons_Operation_Click(object sender, EventArgs e)
         {
-            if (isThisFirstNum)
+            Button clickedButton = sender as Button;
+            switch (clickedButton.Text)
             {
-                firstNumber += "8";
-            }
-            else
-            {
-                secondNumber += "8";
-            }
-            UpdateNumber();
-        }
-
-        private void button_9_Click(object sender, EventArgs e)
-        {
-            if (isThisFirstNum)
-            {
-                firstNumber += "9";
-            }
-            else
-            {
-                secondNumber += "9";
-            }
-            UpdateNumber();
-        }
-
-        //operations:
-        private void button_plus_Click(object sender, EventArgs e)
-        {
-            operation = 1;
-            if (isThisFirstNum)
-            {
-                if (firstNumber == "")
-                {
-                    return;
-                }
-                isThisFirstNum = false;
+                case "+":
+                    if (isThisFirstNum)
+                    {
+                        if (firstNumber == "")
+                        {
+                            return;
+                        }
+                        isThisFirstNum = false;
+                    }
+                    label_operation.Text = "+";
+                    operation = 1;
+                    break;
+                case "-":
+                    if (isThisFirstNum)
+                    {
+                        if (firstNumber == "")
+                        {
+                            //firstNumber += "-";
+                            //UpdateNumber();
+                            return;
+                        }
+                        isThisFirstNum = false;
+                    }
+                    label_operation.Text = "-";
+                    operation = 2;
+                    break;
+                case "*":
+                    if (isThisFirstNum)
+                    {
+                        if (firstNumber == "")
+                        {
+                            return;
+                        }
+                        isThisFirstNum = false;
+                    }
+                    label_operation.Text = "*";
+                    operation = 3;
+                    break;
+                case "/":
+                    if (isThisFirstNum)
+                    {
+                        if (firstNumber == "")
+                        {
+                            return;
+                        }
+                        isThisFirstNum = false;
+                    }
+                    label_operation.Text = "/";
+                    operation = 4;
+                    break;
             }
             labelText.Text = "Enter the second number:";
-            label_operation.Text = "+";
+            firstNumber_Text.Text = firstNumber;
+            richTextBox1.Text = ""; //NEED TO CHANGE LOGIC 
             isPointExist = false;
         }
-
-        private void button_minus_Click(object sender, EventArgs e)
-        {
-            operation = 2;
-            if (isThisFirstNum)
-            {
-                if (firstNumber == "")
-                {
-                    return;
-                }
-                isThisFirstNum = false;
-            }
-            labelText.Text = "Enter the second number:";
-            label_operation.Text = "-";
-            isPointExist = false;
-        }
-
-        private void button_mult_Click(object sender, EventArgs e)
-        {
-            operation = 3;
-            if (isThisFirstNum)
-            {
-                if (firstNumber == "")
-                {
-                    return;
-                }
-                isThisFirstNum = false;
-            }
-            labelText.Text = "Enter the second number:";
-            label_operation.Text = "*";
-            isPointExist = false;
-        }
-
-        private void button_mod_Click(object sender, EventArgs e)
-        {
-            operation = 4;
-            if (isThisFirstNum)
-            {
-                if (firstNumber == "")
-                {
-                    return;
-                }
-                isThisFirstNum = false;
-            }
-            labelText.Text = "Enter the second number:";
-            label_operation.Text = "/";
-            isPointExist = false;
-        }
+        //POINT 
         private void button_point_Click(object sender, EventArgs e)
         {
             if (isThisFirstNum & isPointExist == false)
@@ -258,7 +224,7 @@ namespace Calculator
         }
 
         //Answer
-        private void buttonAnswer_Click(object sender, EventArgs e)
+        private void button_Answer_Click(object sender, EventArgs e)
         {
             if (firstNumber == "")
             {
@@ -305,6 +271,7 @@ namespace Calculator
             richTextBox1.Text = answer.ToString();
             labelText.Text = "Here's your answer:";
             label_operation.Text = "";
+            firstNumber_Text.Text = "";
         }
         private void button_deleteLast_Click(object sender, EventArgs e)
         {
@@ -346,7 +313,6 @@ namespace Calculator
                 isPointExist = false;
             }
         }
-
         private void button_ClearAll_Click(object sender, EventArgs e)
         {
             firstNumber = "";
@@ -358,6 +324,7 @@ namespace Calculator
             richTextBox1.Text = "";
             labelText.Text = "Enter the first number:";
             label_operation.Text = "";
+            firstNumber_Text.Text = "";
         }
     }
 }
