@@ -14,16 +14,30 @@ namespace Calculator
         public string secondNumber = "";
         private bool isThisFirstNum = true;
         private bool isPointExist = false;
+        private bool isResultActive = false;
         //Numbers
         private void numberButtons(object sender, EventArgs e)
         {
-            Button clickedButton = sender as Button;
+            if (firstNumber == "0" && isThisFirstNum)
+            {
+                return;
+            }
+            else if (secondNumber == "0" && !isThisFirstNum)
+            {
+                return;
+            }
+            else if (isResultActive && secondNumber == "" && operation == 0)
+            {
+                MessageBox.Show("Secect the operation or clear the current result!");
+                return;
+            }
+                Button clickedButton = sender as Button;
             switch (clickedButton.Text)
             {
                 case "0":
                     if (isThisFirstNum)
                     {
-                        if (firstNumber == "")
+                        if (firstNumber == "0")
                         {
                             return;
                         }
@@ -31,7 +45,7 @@ namespace Calculator
                     }
                     else
                     {
-                        if (secondNumber == "")
+                        if (secondNumber == "0")
                         {
                             return;
                         }
@@ -267,6 +281,7 @@ namespace Calculator
             }
             firstNumber = answer.ToString();
             operation = 0;
+            isResultActive = true;
             secondNumber = "";
             richTextBox1.Text = answer.ToString();
             labelText.Text = "Here's your answer:";
@@ -320,6 +335,7 @@ namespace Calculator
             operation = 0;
             isThisFirstNum = true;
             isPointExist = false;
+            isResultActive = false;
 
             richTextBox1.Text = "";
             labelText.Text = "Enter the first number:";
